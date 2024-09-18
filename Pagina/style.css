@@ -97,7 +97,7 @@ footer {
 }
 
 .emoji-options span {
-    font-size: 2rem; /* Ajusta el tamaño del emoji */
+    font-size: 2.5rem; /* Ajusta el tamaño del emoji */
     padding: 10px;
     transition: transform 0.1s;
 }
@@ -105,13 +105,52 @@ footer {
 /* Efecto al seleccionar */
 .emoji-options input[type="radio"]:checked + span {
     transform: scale(1.5); /* Aumenta el tamaño del emoji seleccionado */
-    background-color: #f0f0f0; /* Cambia el fondo cuando se selecciona */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega sombra al emoji seleccionado */
+    background-color: #5a57ed; /* Cambia el fondo cuando se selecciona */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Agrega sombra al emoji seleccionado */
+    border-radius: 10px;
 }
 
 /* Efecto al hacer hover (pasar el mouse) */
 .emoji-options label:hover span {
-    transform: scale(1.2); /* Aumenta el tamaño al hacer hover */
+    transform: scale(5); /* Aumenta el tamaño al hacer hover */
     background-color: #e0e0e0; /* Cambia el fondo al pasar el mouse */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
+
+.letras-options {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 700px;
+    margin: auto;
+    justify-content: center;
+}
+
+.letras-options label {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.letras-options label:hover {
+    background-color: #f0f0f0;
+}
+
+.letras-options input[type="radio"] {
+    margin-right: 10px;
+}
+
+.letras-options span {
+    font-weight: bold;
+    color: #333;
+}
+
 
