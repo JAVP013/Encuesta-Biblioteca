@@ -26,7 +26,7 @@ formulario.addEventListener('submit', function(event) {
 
 /* PARA LAS PREGUNTAS 13,14 Y 15 */
 document.addEventListener('DOMContentLoaded', function() {
-    // Seleccionar las opciones de las preguntas
+
     let preg13_si = document.getElementById('preg13_si');
     let preg13_no = document.getElementById('preg13_no');
     let preg13_no_enterado = document.getElementById('preg13_noenterado');
@@ -38,8 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let preg15_no = document.getElementById('preg15_no');
     let preg15_si = document.getElementById('preg15_si');
-  
-    // Escuchar el cambio en la Pregunta 13
+
     document.getElementsByName('preg13').forEach((element) => {
       element.addEventListener('change', function() {
         if (preg13_no.checked || preg13_no_enterado.checked) {
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
           preg14_nunca.checked = true;
           preg15_no.checked = true;
   
-          // Deshabilitar las opciones de Pregunta 14 y 15
+          // Deshabilitar las opciones de las Pregunta 14 y 15
           preg14_siempre.disabled = true;
           preg14_23veces.disabled = true;
           preg14_1vez.disabled = true;
@@ -62,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
           preg15_no.disabled = false;
         }
         if(preg13_si.checked){
-            // Si selecciona "si" en Pregunta 13 deshabilita la opcion de nunca de la pregunta 14
+            // Si selecciona "Si" en Pregunta 13 deshabilita la opcion de nunca de la Pregunta 14
             preg14_nunca.disabled = true;
         }
       });
