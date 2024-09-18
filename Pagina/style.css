@@ -80,3 +80,38 @@ footer {
     color: white;
     margin-top: 20px;
 }
+.emoji-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.emoji-options label {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.emoji-options input[type="radio"] {
+    display: none;
+}
+
+.emoji-options span {
+    font-size: 2rem; /* Ajusta el tamaño del emoji */
+    padding: 10px;
+    transition: transform 0.1s;
+}
+
+/* Efecto al seleccionar */
+.emoji-options input[type="radio"]:checked + span {
+    transform: scale(1.5); /* Aumenta el tamaño del emoji seleccionado */
+    background-color: #f0f0f0; /* Cambia el fondo cuando se selecciona */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega sombra al emoji seleccionado */
+}
+
+/* Efecto al hacer hover (pasar el mouse) */
+.emoji-options label:hover span {
+    transform: scale(1.2); /* Aumenta el tamaño al hacer hover */
+    background-color: #e0e0e0; /* Cambia el fondo al pasar el mouse */
+}
+
