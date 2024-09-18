@@ -17,11 +17,11 @@
     <p>El Centro de Información solicita su apoyo para contestar la siguiente encuesta sobre la satisfacción del usuario en relación con los servicios que se ofrecen en sus instalaciones.</p>
     <p>Le pedimos por favor responder el siguiente cuestionario.</p>
     
-    <form action="https://script.google.com/macros/s/AKfycbzBU0YFpVAgfYs2JOvl0U-ZXvDuy5IuuNTv-qgQeo7HUDWCkYPQBa19Gg00TQOnnK3WyA/exec" method="post">
+    <form id="formEncuesta" action="https://script.google.com/macros/s/AKfycbxN-KBjQFAZ2zaYmDfHTbHn-hKLOD5WWN09VeS8e8C1m28W0dYiqYICLD1EOMYrIa8l4w/exec" method="post">
 
         <!-- Numero de control -->
         <label for="text">Numero de control:</label><br>
-        <input type="textbox" id="nocontrol" name="nocontrol" maxlength="8" minlength="8" placeholder="Introduce solo 8 digitos" required ><br><br>
+        <input type="textbox" id="nocontrol" name="nocontrol" maxlength="8" minlength="8" placeholder="Numero de control" required ><br><br>
         
         <!-- Semestre -->
         <label for="semestre">Selecciona el semestre en el que estás cursando la carrera:</label><br>
@@ -54,8 +54,8 @@
             <option value="Tic's">ING. EN TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES</option>
             <option value="Administracion">LIC. EN ADMINISTRACIÓN</option>
             <option value="Arquitectura">ARQUITECTURA</option>
-            <option value="Posgrado">POSGRADO</option>
-            <option value="Otro">Otro</option>
+            <option value="Ma. en Alimento">MAESTRIA EN CIENCIAS EN ALIMENTO</option>
+            <option value="Doc. en Alimento">DOCTORADO EN CIENCIAS EN ALIMENTO</option>
         </select><br><br>
 
         <!-- Género -->
@@ -348,6 +348,10 @@
                 <input type="radio" name="preg11" value="1 VEZ AL MES">
                 <span>1 vez al mes</span>
             </label>
+            <label>
+                <input type="radio" name="preg11" value="Nunca">
+                <span>Nunca</span>
+            </label>
         </div>
         <br><br>
 
@@ -550,15 +554,34 @@
                 <input type="radio" name="pregV" value="MUY MALO">
                 <span>😠</span>
             </label>
-        </div><br><br>
+        </div>
+        <br><br>
 
-        <!-- Submit -->
+        <input type="hidden" id="fechaHora" name="fechaHora">
+
         <input type="submit" value="Enviar encuesta">
     </form>
 </main>
 <footer>
     <p>Instituto Tecnológico de Tepic - ITTEPIC | Centro de Información</p>
 </footer>
+
+<script>
+    // Capturar la fecha y hora actuales del dispositivo
+    document.getElementById('formEncuesta').addEventListener('submit', function(event) {
+        // Evitar el envío antes de agregar la fecha y hora
+        event.preventDefault();
+
+        // Obtener la fecha y hora actuales
+        var fechaHoraActual = new Date().toLocaleString();
+
+        // Asignar la fecha y hora al campo oculto
+        document.getElementById('fechaHora').value = fechaHoraActual;
+
+        // Enviar el formulario después de asignar la fecha y hora
+        this.submit();
+    });
+</script>
 </body>
 </html>
 
