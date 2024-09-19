@@ -4,7 +4,7 @@ const formulario = document.getElementById('formEncuesta');
 const errorMensaje = document.getElementById('error');
 
 /* PENDIENTE LA PRIMERA LETRA, ESPECIFICAR CON QUE LETRA PUEDEN EMPEZAR */
-let regex = /^[CD]?0[89]40[0-9]{4}$|^[A-Z]?1[0-9]40[0-9]{4}$|^[A-Z]?2[103]40[0-9]{4}$/;
+let regex = /^[CD]?0[89]40[0-9]{4}$|^[CD]?1[0-9]40[0-9]{4}$|^[CD]?2[103]40[0-9]{4}$/;
 
 numeroControl.addEventListener('input', function() {
     if (regex.test(numeroControl.value)) {
