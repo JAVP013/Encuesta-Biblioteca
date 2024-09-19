@@ -106,3 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+document.getElementById('formEncuesta').addEventListener('submit', function(event) {
+  // Evitar el envío antes de agregar la fecha y hora
+  event.preventDefault();
+  // Obtener la fecha y hora actuales
+  var fechaHoraActual = new Date().toLocaleString();
+  // Asignar la fecha y hora al campo oculto
+  document.getElementById('fechaHora').value = fechaHoraActual;
+  // Enviar el formulario después de asignar la fecha y hora
+  this.submit();
+});

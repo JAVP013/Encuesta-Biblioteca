@@ -573,18 +573,6 @@
     <p>Instituto Tecnológico de Tepic - ITTEPIC | Centro de Información</p>
 </footer>
 
-<script>
-    document.getElementById('formEncuesta').addEventListener('submit', function(event) {
-        // Evitar el envío antes de agregar la fecha y hora
-        event.preventDefault();
-        // Obtener la fecha y hora actuales
-        var fechaHoraActual = new Date().toLocaleString();
-        // Asignar la fecha y hora al campo oculto
-        document.getElementById('fechaHora').value = fechaHoraActual;
-        // Enviar el formulario después de asignar la fecha y hora
-        this.submit();
-    });
-</script>
 <script src="script.js" refer></script>
 </body>
 </html>
