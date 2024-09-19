@@ -89,10 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         preg12_nouso.checked = true;
 
         // Deshabilitar las opciones de las Pregunta 11 y 12
-/*         preg11_diario.disabled = true;
-        preg11_examenes.disabled = true;
-        preg11_23veces.disabled = true;
-        preg11_1vez.disabled = true; */
         preg12_manana.disabled = true;
         preg12_tarde.disabled = true;
         preg12_mixto.disabled = true;
