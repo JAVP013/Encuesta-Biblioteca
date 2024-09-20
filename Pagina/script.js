@@ -107,40 +107,59 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 /* ----------------------------------------------------------------------------------------- */
-/* PARA LO DE LA HORA */
+/* PARA LO DE LA HORA Y RESPONDER PREGUNTAS  */
 document.getElementById('formEncuesta').addEventListener('submit', function(event) {
-  // Evitar el envío antes de agregar la fecha y hora
-  event.preventDefault();
-  // Obtener la fecha y hora actuales
-  var fechaHoraActual = new Date().toLocaleString();
-  // Asignar la fecha y hora al campo oculto
-  document.getElementById('fechaHora').value = fechaHoraActual;
-  // Enviar el formulario después de asignar la fecha y hora
-  this.submit();
+  event.preventDefault(); // Evita el envío automático del formulario
+
+  let valid = true; // Debe empezar como true y cambiar a false si falta alguna pregunta
+  function checkQuestion(questionName, errorElementId) {
+      let pregunta = document.getElementsByName(questionName);
+      let answered = false;
+      for (let i = 0; i < pregunta.length; i++) {
+          if (pregunta[i].checked) {
+              answered = true;
+              break;
+          }
+      }
+      if (!answered) {
+          document.getElementById(errorElementId).textContent = "Por favor, conteste esta pregunta.";
+          valid = false; // Si no está respondida, ponemos valid en false
+      } else {
+          document.getElementById(errorElementId).textContent = ""; // Limpia el error si ya está contestado
+      }
+  }
+
+  // Valida cada pregunta
+  checkQuestion('preg1', 'error_preg1',1);
+  checkQuestion('preg2', 'error_preg2');
+  checkQuestion('preg3', 'error_preg3');
+  checkQuestion('preg4', 'error_preg4');
+  checkQuestion('preg5', 'error_preg5');
+  checkQuestion('preg6', 'error_preg6');
+  checkQuestion('preg7', 'error_preg7');
+  checkQuestion('preg8', 'error_preg8');
+  checkQuestion('preg9', 'error_preg9');
+  checkQuestion('preg10', 'error_preg10');
+  checkQuestion('preg11', 'error_preg11');
+  checkQuestion('preg12', 'error_preg12');
+  checkQuestion('preg13', 'error_preg13');
+  checkQuestion('preg14', 'error_preg14');
+  checkQuestion('preg15', 'error_preg15');
+  checkQuestion('pregI', 'error_pregI');
+  checkQuestion('pregII', 'error_pregII');
+  checkQuestion('pregIII', 'error_pregIII');
+  checkQuestion('pregIV', 'error_pregIV');
+  checkQuestion('pregV', 'error_pregV',);
+  
+  // Si todas las preguntas están respondidas, envía el formulario
+  if (valid) {
+      document.getElementById('error_preg').textContent = "";
+      alert("Formulario enviado correctamente.");
+      var fechaHoraActual = new Date().toLocaleString();
+      // Asignar la fecha y hora al campo oculto
+      document.getElementById('fechaHora').value = fechaHoraActual;
+      this.submit(); // Envía el formulario si es válido
+  } else {
+      document.getElementById('error_preg').textContent = "Por favor, complete todas las preguntas.";
+  }
 });
-/* ----------------------------------------------------------------------------------------- */
-
-// Verificar que se hayan respondido todas las preguntas de satisfacción
-var preguntas = ["preg1", "preg2", "preg3", "preg4"];
-for (var i = 0; i < preguntas.length; i++) {
-    var opciones = document.getElementsByName(preguntas[i]);
-    var respondida = false;
-
-    // Verificar si alguna opción de la pregunta está seleccionada
-    for (var j = 0; j < opciones.length; j++) {
-        if (opciones[j].checked) {
-            respondida = true;
-            break;
-        }
-    }
-
-    // Si no se ha respondido, mostrar alerta y salir
-    if (!respondida) {
-        alert("Por favor, responde todas las preguntas de satisfacción.");
-        return;
-    }
-}
-
-// Si todas las preguntas están respondidas, enviar el formulario
-alert("¡Gracias por completar la encuesta!");
-document.getElementById("formEncuesta").submit();
