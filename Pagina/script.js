@@ -23,7 +23,7 @@ formulario.addEventListener('submit', function(event) {
         location.reload();
     }
 });
-
+/* ----------------------------------------------------------------------------------------- */
 /* PARA LAS PREGUNTAS 13,14 Y 15 */
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 });
-
+/* ----------------------------------------------------------------------------------------- */
 /* PARA LAS PREGUNTAS 11 Y 12 */
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
+/* ----------------------------------------------------------------------------------------- */
+/* PARA LO DE LA HORA */
 document.getElementById('formEncuesta').addEventListener('submit', function(event) {
   // Evitar el envío antes de agregar la fecha y hora
   event.preventDefault();
@@ -117,3 +118,29 @@ document.getElementById('formEncuesta').addEventListener('submit', function(even
   // Enviar el formulario después de asignar la fecha y hora
   this.submit();
 });
+/* ----------------------------------------------------------------------------------------- */
+
+// Verificar que se hayan respondido todas las preguntas de satisfacción
+var preguntas = ["preg1", "preg2", "preg3", "preg4"];
+for (var i = 0; i < preguntas.length; i++) {
+    var opciones = document.getElementsByName(preguntas[i]);
+    var respondida = false;
+
+    // Verificar si alguna opción de la pregunta está seleccionada
+    for (var j = 0; j < opciones.length; j++) {
+        if (opciones[j].checked) {
+            respondida = true;
+            break;
+        }
+    }
+
+    // Si no se ha respondido, mostrar alerta y salir
+    if (!respondida) {
+        alert("Por favor, responde todas las preguntas de satisfacción.");
+        return;
+    }
+}
+
+// Si todas las preguntas están respondidas, enviar el formulario
+alert("¡Gracias por completar la encuesta!");
+document.getElementById("formEncuesta").submit();
