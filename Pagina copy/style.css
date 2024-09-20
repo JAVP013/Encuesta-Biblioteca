@@ -1,0 +1,241 @@
+body {
+    font-family: 'montserrat', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    text-align: center;
+
+}
+
+header {
+    background-color: lightgrey;
+    color: rgb(72, 61, 61);
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    display: flex;
+
+}
+
+/* header image{
+    align-content:end;
+} */
+header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    
+}
+.letras-titulo{
+    margin-left: -80px;
+}
+.div_img{
+    width: 10%;
+    margin-right: -40px;
+}
+.div_img1{
+    margin-left: -40px;
+    width: 250px;
+    height: 120px;
+}
+.imagenes{
+    width: 100%;
+    height: 100%;
+
+}
+
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+}
+
+main h2 {
+    color: #0057a7;
+    border-bottom: 2px solid #0057a7;
+    padding-bottom: 5px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    
+}
+
+input[type="textbox"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1.2rem;
+}
+
+input[type="submit"] {
+    background-color: #0057a7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #004080;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0057a7;
+    color: white;
+    margin-top: 20px;
+}
+.emoji-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.emoji-options label {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.emoji-options input[type="radio"] {
+    display: none;
+}
+
+.emoji-options span {
+    font-size: 2.5rem; /* Ajusta el tamaño del emoji */
+    padding: 10px;
+    transition: transform 0.1s;
+}
+
+/* Efecto al seleccionar */
+.emoji-options input[type="radio"]:checked + span {
+    transform: scale(1.5); /* Aumenta el tamaño del emoji seleccionado */
+    background-color: #5a57ed; /* Cambia el fondo cuando se selecciona */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Agrega sombra al emoji seleccionado */
+    border-radius: 10px;
+}
+
+/* Efecto al hacer hover (pasar el mouse) */
+.emoji-options label:hover span {
+    transform: scale(5); /* Aumenta el tamaño al hacer hover */
+    background-color: #e0e0e0; /* Cambia el fondo al pasar el mouse */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.letras-options {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 700px;
+    margin: auto;
+    justify-content: center;
+}
+
+.letras-options label {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.letras-options label:hover {
+    background-color: #f0f0f0;
+}
+
+.letras-options input[type="radio"] {
+    margin-right: 10px;
+}
+
+.letras-options span {
+    font-weight: bold;
+    color: #333;
+}
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+
+/* Responsive design */
+@media (max-width: 800px) {
+    header {
+        flex-direction: row;
+        padding: 10px;
+        justify-content: space-around;
+    }
+
+    header h1,h2 {
+        font-size: 1rem;
+    }
+
+    .div_img1 {
+        width: 200px;
+        height: 100px;
+    
+    }
+
+    main {
+        margin: 10px;
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    .emoji-options span {
+        font-size: 2rem;
+    }
+    
+}
+
+@media (max-width: 630px) {
+    .letras-options {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .emoji-options span {
+        font-size: 1.8rem;
+    }
+
+    header h1,h2 {
+        font-size: 0.7rem;
+    }
+
+    .div_img1 {
+        width: 130px;
+        height: 80px;
+    }
+    .letras-titulo{
+        margin-right: -50px;
+    }
+    .div_img{
+    width: 60px;
+    }
+}
+

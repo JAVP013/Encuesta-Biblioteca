@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción de Servicios de Biblioteca - ITTEPIC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="titulo">
+    <div class="div_img1">
+        <img src="./imagenes/Logo-TecNM.png" class="imagenes" >
+    </div>
+    <div class="letras-titulo">
+        <h1>Encuesta de Satisfacción de Servicios de Biblioteca</h1>
+        <h2>Instituto Tecnológico de Tepic - ITTEPIC</h2>
+    </div>
+<div class="div_img">
+    <img src="./imagenes/estepi.png" class="imagenes" >
+</div>
+
+
+
+</header>
+
+<main class="estilo_mian">
+    <p><strong>Evaluar el nivel de satisfacción que poseen los estudiantes que son usuarios del Centro de Información (CI).</strong></p>
+    <p>El Centro de Información solicita su apoyo para contestar la siguiente encuesta sobre la satisfacción del usuario en relación con los servicios que se ofrecen en sus instalaciones.</p>
+    <p>Le pedimos por favor responder el siguiente cuestionario.</p>
+    
+    <form id="formEncuesta" action="https://script.google.com/macros/s/AKfycbyLFk1gCbxhzOQozSHhjQl8nHMXwhqC5KeMV3iUu1QRt9EqjpwHOitz_W_bcsW6LgEd5Q/exec" method="post">
+
+        <!-- Numero de control -->
+        <label for="text">Numero de control:</label><br>
+        <input type="textbox" id="nocontrol" name="nocontrol" placeholder="Numero de control" required >
+        <span id="error" style="color:red; display:none;">Formato inválido</span>
+        <br><br>
+
+        
+        <!-- Semestre -->
+        <label for="semestre">Selecciona el semestre en el que estás cursando la carrera:</label><br>
+        <select id="semestre" name="semestre" required>
+            <option value="1">1 semestre</option>
+            <option value="2">2 semestre</option>
+            <option value="3">3 semestre</option>
+            <option value="4">4 semestre</option>
+            <option value="5">5 semestre</option>
+            <option value="6">6 semestre</option>
+            <option value="7">7 semestre</option>
+            <option value="8">8 semestre</option>
+            <option value="9">9 semestre</option>
+            <option value="10">10 semestre</option>
+            <option value="11">11 semestre</option>
+            <option value="12">12 semestre</option>
+        </select><br><br>
+
+        <!-- Carrera -->
+        <label for="carrera">Selecciona la carrera que estás cursando en la institución:</label><br>
+        <select id="carrera" name="carrera" required>
+            <option value="Industrial">ING. INDUSTRIAL</option>
+            <option value="Electrica">ING. ELÉCTRICA</option>
+            <option value="Mecatronica">ING. MECATRÓNICA</option>
+            <option value="Gestion">ING. EN GESTIÓN EMPRESARIAL</option>
+            <option value="Civil">ING. CIVIL</option>
+            <option value="Quimica">ING. QUÍMICA</option>
+            <option value="Bioquimica">ING. BIOQUÍMICA</option>
+            <option value="Sistemas Computacionales">ING. EN SISTEMAS COMPUTACIONALES</option>
+            <option value="Tic's">ING. EN TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES</option>
+            <option value="Administracion">LIC. EN ADMINISTRACIÓN</option>
+            <option value="Arquitectura">ARQUITECTURA</option>
+            <option value="Ma. en Alimento">MAESTRIA EN CIENCIAS EN ALIMENTO</option>
+            <option value="Doc. en Alimento">DOCTORADO EN CIENCIAS EN ALIMENTO</option>
+        </select><br><br>
+
+        <!-- Género -->
+        <label for="genero">Selecciona el género:</label><br>
+        <select id="genero" name="genero" required>
+            <option value="Femenino">FEMENINO</option>
+            <option value="Masculino">MASCULINO</option>
+            <option value="Otro">OTRO / INDISTINTO</option>
+        </select><br><br>
+
+        <!-- Pregs de satisfacción -->
+        <h2>Preguntas de satisfacción</h2>
+
+        <!-- Preg 1 -->
+        <label for="preg1">1.- La Biblioteca tiene un horario y días de servicio adecuado de consulta:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg1" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg1" value="BUENO" >
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg1" value="REGULAR" >
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg1" value="MALO" >
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg1" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg1" class="error"></span>
+        <br><br>
+
+        <!-- Preg 2 -->
+        <label for="preg2">2.- La bibliografía con la que cuenta el CI me apoya en las asignaturas que curso:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg2" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg2" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg2" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg2" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg2" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg2" class="error"></span>
+        <br><br>
+        
+        <!-- Preg 3 -->
+        <label for="preg3">3.- Siempre encuentro por lo menos un ejemplar disponible de la bibliografía señalada en las asignaturas que curso:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg3" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg3" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg3" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg3" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg3" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg3" class="error"></span>
+        <br><br>
+
+        <!-- Preg 4 -->
+        <label for="preg4">4.- La bibliografía de la que se dispone el CI es actualizada:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg4" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg4" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg4" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg4" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg4" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg4" class="error"></span>
+        <br><br>
+
+        <!-- Preg 5 -->
+        <label for="preg5">5.- El periodo de préstamos del material a domicilio es adecuado:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg5" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg5" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg5" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg5" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg5" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg5" class="error"></span>
+        <br><br>
+
+        <!-- Preg 6 -->
+        <label for="preg6">6.- Las instalaciones son idóneas para el ambiente de estudio y trabajo:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg6" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg6" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg6" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg6" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg6" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg6" class="error"></span>
+        <br><br>
+
+        <!-- Preg 7 -->
+        <label for="preg7">7.- Tienen medios y recursos para presentar quejas o sugerencias sobre el servicio del centro de información:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg7" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg7" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg7" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg7" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg7" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg7" class="error"></span>
+        <br><br>
+
+        <!-- Preg 8 -->
+        <label for="preg8">8.- El uso del sistema de consulta es fácil al momento de realizar una búsqueda de libros:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg8" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg8" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg8" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg8" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg8" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg8" class="error"></span>
+        <br><br>
+
+        <!-- Preg 9 -->
+        <label for="preg9">9.- La sala de lectura es confortable y adecuada para el estudiante:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg9" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg9" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg9" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg9" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg9" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg9" class="error"></span>
+        <br><br>
+
+        <!-- Preg 10 -->
+        <label for="preg10">10.- Es ágil el proceso de préstamos:</label><br>     
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="preg10" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="preg10" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="preg10" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="preg10" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="preg10" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_preg10" class="error"></span>
+        <br><br>
+        
+        <!-- Preg 11 -->
+        <label for="preg11">11.- Con qué frecuencia utiliza los servicios de Biblioteca:</label><br>
+        <div class="letras-options">
+            <label>
+                <input type="radio" name="preg11" id="preg11_diario" value="DIARIO">
+                <span>Diario</span>
+            </label>
+            <label>
+                <input type="radio" name="preg11" id="preg11_examenes" value="SOLO EN EXAMENES">
+                <span>Solo en examenes</span>
+            </label>
+            <label>
+                <input type="radio" name="preg11" id="preg11_23veces" value="2 O 3 VECES POR SEMANA">
+                <span>2 o 3 veces por semana</span>
+            </label>
+            <label>
+                <input type="radio" name="preg11" id="preg11_1vez" value="1 VEZ AL MES">
+                <span>1 vez al mes</span>
+            </label>
+            <label>
+                <input type="radio" name="preg11" id="preg11_nunca" value="NUNCA">
+                <span>Nunca</span>
+            </label>
+        </div>
+        <span id="error_preg11" class="error"></span>
+        <br><br>
+
+        <!-- Preg 12 -->
+        <label for="preg12">12.- En qué horario utilizas los servicios de la Biblioteca:</label><br>
+        <div class="letras-options">
+            <label>
+                <input type="radio" name="preg12" id="preg12_manana" value="MAÑANA">
+                <span>Mañana</span>
+            </label>
+            <label>
+                <input type="radio" name="preg12" id="preg12_tarde" value="TARDE">
+                <span>Tarde</span>
+            </label>
+            <label>
+                <input type="radio" name="preg12" id="preg12_mixto" value="AMBOS/MIXTO">
+                <span>Ambos/Mixto</span>
+            </label>
+            <label>
+                <input type="radio" name="preg12" id="preg12_nouso" value="NO LO USO">
+                <span>No lo uso</span>
+            </label>
+        </div>
+        <span id="error_preg12" class="error"></span>
+        <br><br>
+
+        <!-- Preg 13 -->
+        <label for="preg13">13.- ¿Utilizas los recursos de la Biblioteca virtual que te ofrece la Institución?</label><br>
+        <div class="letras-options">
+            <label>
+                <input type="radio" name="preg13" id="preg13_si" value="SI">
+                <span>Sí</span>
+            </label>
+            <label>
+                <input type="radio" name="preg13" id="preg13_no"  value="NO">
+                <span>No</span>
+            </label>
+            <label>
+                <input type="radio" name="preg13" id="preg13_noenterado" value="NO ESTOY ENTERADO(A)">
+                <span>No estoy enterado(a)</span>
+            </label>
+        </div>
+        <span id="error_preg13" class="error"></span>
+        <br><br>
+
+        <!-- Preg 14 -->
+        <label for="preg14">14.- ¿Con qué frecuencia utiliza la Biblioteca Digital?</label><br>
+        <div class="letras-options">
+            <label>
+                <input type="radio" name="preg14" id="preg14_siempre"  value="SIEMPRE">
+                <span>Siempre</span>
+            </label>
+            <label>
+                <input type="radio" name="preg14" id="preg14_23veces"  value="2 O 3 VECES">
+                <span>Algunas 2 o 3 veces por semana</span>
+            </label>
+            <label>
+                <input type="radio" name="preg14" id="preg14_1vez"  value="1 VEZ">
+                <span>En ocasiones, 1 vez por semana</span>
+            </label>
+            <label>
+                <input type="radio" name="preg14" id="preg14_nunca"  value="NUNCA">
+                <span>Nunca</span>
+            </label>
+        </div>
+        <span id="error_preg14" class="error"></span>
+        <br><br>
+
+        <!-- Preg 15 -->
+        <label for="preg15">15.- El contenido de los Recursos de Información de la Biblioteca virtual son suficientes, claros y comprensibles:</label><br>
+        <div class="letras-options">
+            <label>
+                <input type="radio" name="preg15" id="preg15_si" value="SI">
+                <span>Sí</span>
+            </label>
+            <label>
+                <input type="radio" name="preg15" id="preg15_no"  value="NO">
+                <span>No</span>
+            </label>
+        </div>
+        <span id="error_preg15" class="error"></span>
+        <br><br>
+
+        <!-- Preg I -->
+        <label for="pregI">I.- El personal del CI proporciona atención adecuada en caso de buscar determinado libro, tesis o revista:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="pregI" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="pregI" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="pregI" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="pregI" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="pregI" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_pregI" class="error"></span>
+        <br><br>
+
+        <!-- Preg II -->
+        <label for="pregII">II.- El personal en turno es atento, amable, con disposición de orientarte y ayudar cuando lo necesitas:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="pregII" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="pregII" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="pregII" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="pregII" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="pregII" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_pregII" class="error"></span>
+        <br><br>
+
+        <!-- Preg III -->
+        <label for="pregIII">III.- El personal cumple con el reglamento del centro de información (No entrar con alimentos, sin mochilas, atentos a cosas que alteren el orden del lugar):</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="pregIII" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="pregIII" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="pregIII" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="pregIII" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="pregIII" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_pregIII" class="error"></span>
+        <br><br>
+
+        <!-- Preg IV -->
+        <label for="pregIV">IV.- El personal tiene disposición para conocer sus solicitudes y sugerencias:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="pregIV" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="pregIV" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="pregIV" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="pregIV" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="pregIV" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_pregIV" class="error"></span>
+        <br><br>
+
+        <!-- Preg V -->
+        <label for="pregV">V.- Grado de satisfacción de los servicios que ofrece el Centro de Información:</label><br>
+        <div class="emoji-options">
+            <label>
+                <input type="radio" name="pregV" value="EXCELENTE">
+                <span>😀</span>
+            </label>
+            <label>
+                <input type="radio" name="pregV" value="BUENO">
+                <span>😊</span>
+            </label>
+            <label>
+                <input type="radio" name="pregV" value="REGULAR">
+                <span>😐</span>
+            </label>
+            <label>
+                <input type="radio" name="pregV" value="MALO">
+                <span>☹️</span>
+            </label>
+            <label>
+                <input type="radio" name="pregV" value="MUY MALO">
+                <span>😠</span>
+            </label>
+        </div>
+        <span id="error_pregV" class="error"></span>
+        <br><br>
+
+        <input type="hidden" id="fechaHora" name="fechaHora">
+
+        <span id="error_preg" class="error"></span>
+        <br><br>
+        <input type="submit" value="Enviar encuesta">
+    </form>
+</main>
+<footer>
+    <p>Instituto Tecnológico de Tepic - ITTEPIC | Centro de Información</p>
+</footer>
+<script src="script.js" refer></script>
+</body>
+</html>
+
