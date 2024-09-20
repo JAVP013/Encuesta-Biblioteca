@@ -154,7 +154,6 @@ document.getElementById('formEncuesta').addEventListener('submit', function(even
   // Si todas las preguntas están respondidas, envía el formulario
   if (valid) {
       document.getElementById('error_preg').textContent = "";
-      alert("Formulario enviado correctamente.");
       var fechaHoraActual = new Date().toLocaleString();
       // Asignar la fecha y hora al campo oculto
       document.getElementById('fechaHora').value = fechaHoraActual;
