@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Sencillo</title>
+    <link rel="stylesheet" href="/styles/styleIndex.css">
+</head>
+<body>
+
+
+<div class="login-container">
+    <h2>Iniciar sesión</h2>
+    <input type="text" id="username" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="login()">Ingresar</button>
+    <p class="error" id="error-message">Usuario o contraseña incorrectos</p>
+</div>
+
+<script>
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Datos de ejemplo para validar el login
+        const validUsername = "admin";
+        const validPassword = "4321";
+
+        // Validación
+        if (username === validUsername && password === validPassword) {
+            window.location.href = "admin.html";  // Redirigir si es correcto
+        } else {
+            document.getElementById('error-message').style.display = 'block';  // Mostrar mensaje de error
+        }
+    }
+</script>
+
+</body>
+</html>

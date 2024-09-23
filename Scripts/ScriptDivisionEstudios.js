@@ -100,3 +100,5 @@ document.getElementById('formEncuesta').addEventListener('submit', function(even
       document.getElementById('error_preg').textContent = "Por favor, complete todas las preguntas.";
   }
 });
+
+

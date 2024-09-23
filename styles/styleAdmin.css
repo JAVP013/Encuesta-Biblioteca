@@ -1,0 +1,36 @@
+header {
+    background-color: lightgrey;
+    color: rgb(72, 61, 61);
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    display: flex;
+
+}
+
+/* header image{
+    align-content:end;
+} */
+header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    
+}
+.letras-titulo{
+    margin-left: -80px;
+}
+.div_img{
+    width: 10%;
+    margin-right: -40px;
+}
+.div_img1{
+    margin-left: -40px;
+    width: 250px;
+    height: 120px;
+}
+.imagenes{
+    width: 100%;
+    height: 100%;
+
+}

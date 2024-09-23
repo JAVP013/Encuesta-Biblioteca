@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encuesta de Satisfacción División de Estudios Profesionales - ITTEPIC</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles/styleDivisionEstudios.css">
 </head>
 <body>
 <header class="titulo">
     <div class="div_img1">
-        <img src="./imagenes/Logo-TecNM.png" class="imagenes" >
+        <img src="../imagenes/Logo-TecNM.png" class="imagenes" >
     </div>
     <div class="letras-titulo">
         <h1>Encuesta de Satisfacción División de Estudios Profesionales</h1>
         <h2>Instituto Tecnológico de Tepic - ITTEPIC</h2>
     </div>
 <div class="div_img">
-    <img src="./imagenes/estepi.png" class="imagenes" >
+    <img src="../imagenes/estepi.png" class="imagenes" >
 </div>
 
 
@@ -166,7 +166,7 @@
         <input type="radio" name="preg5" value="Altamente satisfecho">
         <span>😀</span>
     </label>
-    <label></label>
+    <label>
         <input type="radio" name="preg5" value="Muy satisfecho" >
         <span>😊</span>
     </label>
@@ -229,7 +229,34 @@
 <footer>
     <p>Instituto Tecnológico de Tepic - ITTEPIC | Centro de Información</p>
 </footer>
-<script src="script.js" refer></script>
+<script src="../Scripts/ScriptDivisionEstudios.js" refer></script>
+<script>
+    // Función para obtener parámetros de la URL
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Comprobar si el usuario está autenticado
+    const isAuthenticated = getQueryParam('auth') === 'true';
+
+    if (!isAuthenticated) {
+        // Si no está autenticado, deshabilitar los campos de la encuesta
+        const formElements = document.querySelectorAll('input, select, textarea');
+        formElements.forEach(element => {
+            element.disabled = true;  // Deshabilitar todos los campos
+        });
+
+        // Mostrar mensaje de advertencia
+        const warningMessage = document.createElement('p');
+        warningMessage.textContent = "No tienes permiso para editar esta encuesta. Por favor, inicia sesión.";
+        warningMessage.style.color = 'red';
+        document.querySelector('main').appendChild(warningMessage);
+
+        // Deshabilitar el botón de envío
+        document.getElementById('submitButton').disabled = true;
+    }
+</script>
 </body>
 </html>
 
