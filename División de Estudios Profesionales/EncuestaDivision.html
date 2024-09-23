@@ -230,33 +230,7 @@
     <p>Instituto Tecnológico de Tepic - ITTEPIC | Centro de Información</p>
 </footer>
 <script src="../Scripts/ScriptDivisionEstudios.js" refer></script>
-<script>
-    // Función para obtener parámetros de la URL
-    function getQueryParam(param) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-    }
 
-    // Comprobar si el usuario está autenticado
-    const isAuthenticated = getQueryParam('auth') === 'true';
-
-    if (!isAuthenticated) {
-        // Si no está autenticado, deshabilitar los campos de la encuesta
-        const formElements = document.querySelectorAll('input, select, textarea');
-        formElements.forEach(element => {
-            element.disabled = true;  // Deshabilitar todos los campos
-        });
-
-        // Mostrar mensaje de advertencia
-        const warningMessage = document.createElement('p');
-        warningMessage.textContent = "No tienes permiso para editar esta encuesta. Por favor, inicia sesión.";
-        warningMessage.style.color = 'red';
-        document.querySelector('main').appendChild(warningMessage);
-
-        // Deshabilitar el botón de envío
-        document.getElementById('submitButton').disabled = true;
-    }
-</script>
 </body>
 </html>
 
