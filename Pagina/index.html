@@ -36,23 +36,9 @@
         <span id="error" style="color:red; display:none;">Formato inválido</span>
         <br><br>
 
-        
         <!-- Semestre -->
-        <label for="semestre">Selecciona el semestre en el que estás cursando la carrera:</label><br>
-        <select id="semestre" name="semestre" required>
-            <option value="1">1 semestre</option>
-            <option value="2">2 semestre</option>
-            <option value="3">3 semestre</option>
-            <option value="4">4 semestre</option>
-            <option value="5">5 semestre</option>
-            <option value="6">6 semestre</option>
-            <option value="7">7 semestre</option>
-            <option value="8">8 semestre</option>
-            <option value="9">9 semestre</option>
-            <option value="10">10 semestre</option>
-            <option value="11">11 semestre</option>
-            <option value="12">12 semestre</option>
-        </select><br><br>
+        <!-- Campo oculto para el semestre -->
+        <input type="hidden" id="semestre" name="semestre">
 
         <!-- Carrera -->
         <label for="carrera">Selecciona la carrera que estás cursando en la institución:</label><br>
