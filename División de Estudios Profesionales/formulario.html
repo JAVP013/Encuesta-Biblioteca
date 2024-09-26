@@ -79,11 +79,10 @@
 </footer>
 
 <script>
-
     async function fetchQuestions() {
         const API_KEY = 'AIzaSyD_1OHIUxyQpIcyLgUY0y-NZKo09jmm0mo'; // Tu API key
         const SPREADSHEET_ID = '1SSGrHG9VwXRXX5QlxuXzRVZh5iuzY6WYzSXQopm_e6g'; // Tu Spreadsheet ID
-        const RANGE = 'Preguntas!A2:F10'; // Tu rango
+        const RANGE = 'Preguntas!A2:F15'; // Tu rango
     
         const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`);
         const data = await response.json();
@@ -96,57 +95,67 @@
     
     function displayQuestions(questions) {
         const container = document.getElementById('preguntas-container');
-    
+
         questions.forEach((row, index) => {
             const questionLabel = document.createElement('label');
             questionLabel.innerText = row[0]; // Primera columna es la pregunta
             container.appendChild(questionLabel);
-    
+            
             const optionsDiv = document.createElement('div');
-    
-            // Verificar si la pregunta tiene opciones de emoji o palabras
-            if (row[1] && row[1].toLowerCase().includes('emoji')) {
-                // Usar emojis para la respuesta
+            
+            // Verificar si la pregunta es sobre satisfacción
+            if (row[0].toLowerCase().includes('satisfecho') | row[0].toLowerCase().includes('calificarías')) {
                 optionsDiv.className = 'emoji-options';
-                const emojis = ['😀', '😊', '😐', '☹️', '😠']; // Emojis correspondientes
-                const options = row.slice(2); // Las opciones de respuesta están en columnas posteriores
-    
-                options.forEach((option, i) => {
+                const emojis = {
+                    "Altamente satisfecho": "😀",
+                    "Muy satisfecho": "😊",
+                    "Satisfecho": "😐",
+                    "Poco satisfecho": "☹️",
+                    "Completamente insatisfecho": "😠"
+                };
+
+                // Crear las opciones con emojis
+                Object.keys(emojis).forEach(option => {
                     const label = document.createElement('label');
                     const input = document.createElement('input');
                     input.type = 'radio';
                     input.name = `preg${index + 1}`; // Agrupando las respuestas por pregunta
                     input.value = option;
-    
+
                     label.appendChild(input);
-                    label.appendChild(document.createTextNode(option));
-                    label.appendChild(document.createTextNode(emojis[i])); // Añadir el emoji
+                    const emojiSpan = document.createElement('span'); // Crear el span para el emoji
+                    emojiSpan.textContent = emojis[option]; // Añadir el emoji al span
+                    label.appendChild(emojiSpan); // Añadir el span al label
                     optionsDiv.appendChild(label);
                 });
             } else {
-                // Usar texto para la respuesta
                 optionsDiv.className = 'letras-options';
-                const options = row.slice(1); // Las opciones de respuesta están en columnas posteriores
-    
+                // Las opciones de respuesta están en columnas posteriores
+                const options = row.slice(1); // Suponiendo que las opciones empiezan en la segunda columna
+
                 options.forEach((option) => {
                     const label = document.createElement('label');
                     const input = document.createElement('input');
                     input.type = 'radio';
                     input.name = `preg${index + 1}`; // Agrupando las respuestas por pregunta
                     input.value = option;
-    
+
                     label.appendChild(input);
-                    label.appendChild(document.createTextNode(option)); // Añadir el texto
+                    const textSpan = document.createElement('span'); // Crear el span para el texto
+                    textSpan.textContent = option; // Añadir el texto al span
+                    label.appendChild(textSpan); // Añadir el span al label
                     optionsDiv.appendChild(label);
                 });
             }
+
             container.appendChild(optionsDiv);
             container.appendChild(document.createElement('br'));
+
             const errorSpan = document.createElement('span');
             errorSpan.className = 'error';
             errorSpan.style.color = 'red'; // Para el color del error
             container.appendChild(errorSpan); // Añadir espacio para errores
-            });
+        });
     }
     
     // Validar el número de control
@@ -225,6 +234,8 @@
             if (!answered) {
                 valid = false; // Cambiar valid a false si no se ha respondido
                 errorElements[i - 1].textContent = "Por favor, conteste esta pregunta.";
+            }else{
+                valid=true;
             }
         }
     
@@ -233,16 +244,14 @@
             document.getElementById('error_preg').textContent = ""; // Limpiar mensaje de error
             formulario.submit(); // Enviar el formulario
         } else {
-            formulario.submit();
-            document.getElementById('error_preg').textContent = "Por favor, complete todas las preguntas.";
+            document.getElementById('error_preg').textContent = "Por2 favor, complete todas las preguntas.";
         }
-    });
+    });    
 
     // Carga las preguntas al cargar la página
     document.addEventListener('DOMContentLoaded', fetchQuestions);
-
-
 </script>
+
 
 </body>
 </html>
