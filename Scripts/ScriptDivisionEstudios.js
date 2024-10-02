@@ -40,11 +40,11 @@ function displayQuestions(questions) {
             if (row[1].toLowerCase().includes('satisfecho')) {
                 optionsDiv.className = 'emoji-options';
                 const emojis = {
-                    "Altamente satisfecho": "😀",
-                    "Muy satisfecho": "😊",
-                    "Satisfecho": "😐",
-                    "Poco satisfecho": "☹️",
-                    "Completamente insatisfecho": "😠"
+                    "5": "😀",
+                    "4": "😊",
+                    "3": "😐",
+                    "2": "☹️",
+                    "1": "😠"
                 };
 
                 // Crear las opciones con emojis

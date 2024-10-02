@@ -1,16 +1,15 @@
-// Selección de elementos del DOM
 const numeroControl = document.getElementById('nocontrol');
 const formulario = document.getElementById('formEncuesta');
 const errorMensaje = document.getElementById('error');
 const semestreInput = document.getElementById('semestre');
 
-// Expresión regular para validar el número de control
+//************************************ Expresión regular para validar el número de control ************************************
 const regex = /^[CD]?0[89]40[0-9]{4}$|^[CD]?1[0-9]40[0-9]{4}$|^[CD]?2[103]40[0-9]{4}$/;
 
-// Carga las preguntas desde Google Sheets al cargar la página
+// ************************************Carga las preguntas desde Google Sheets al cargar la página************************************
 document.addEventListener('DOMContentLoaded', fetchQuestions);
 
-// Función para obtener preguntas desde Google Sheets
+// ************************************ Función para obtener preguntas desde Google Sheets ************************************
 async function fetchQuestions() {
     const API_KEY = 'AIzaSyD_1OHIUxyQpIcyLgUY0y-NZKo09jmm0mo'; // Tu API key
     const SPREADSHEET_ID = '1YAF_8hFmUGA7GatIRKFnJdHhWR9ZNKJwp6_cSMkv4KE'; // Tu Spreadsheet ID
@@ -25,7 +24,7 @@ async function fetchQuestions() {
     }
 }
 
-// Función para mostrar las preguntas en el formulario
+//******************************** Función para mostrar las preguntas en el formulario ************************************
 function displayQuestions(questions) {
     const container = document.getElementById('preguntas-container');
 
@@ -50,11 +49,11 @@ function displayQuestions(questions) {
             if (isEmojiQuestion) {
                 optionsDiv.className = 'emoji-options';
                 const emojis = {
-                    "EXCELENTE": "😀",
-                    "BUENO": "😊",
-                    "REGULAR": "😐",
-                    "MALO": "☹️",
-                    "MUY MALO": "😠"
+                    "5": "😀",
+                    "4": "😊",
+                    "3": "😐",
+                    "2": "☹️",
+                    "1": "😠"
                 };
 
                 Object.keys(emojis).forEach(option => {
@@ -63,7 +62,7 @@ function displayQuestions(questions) {
                     input.type = 'radio';
                     input.name = `preg${index + 1}`; // Agrupando las respuestas por pregunta
                     input.value = option;
-                    input.id = `preg${index + 1}_${option.replace(/\s/g, '_').toLowerCase()}`; // ID formateado
+                    input.id = `preg${index + 1}_${option.toLowerCase()}`; // ID formateado
 
                     label.appendChild(input);
                     const emojiSpan = document.createElement('span'); 
@@ -82,7 +81,7 @@ function displayQuestions(questions) {
                         input.type = 'radio';
                         input.name = `preg${index + 1}`; 
                         input.value = option;
-                        input.id = `preg${index + 1}_${option.replace(/\s/g, '_').toLowerCase()}`; // ID formateado
+                        input.id = `preg${index + 1}_${option.index - 1}`; // ID formateado
 
                         label.appendChild(input);
                         const textSpan = document.createElement('span'); 
@@ -97,14 +96,14 @@ function displayQuestions(questions) {
         container.appendChild(optionsDiv);
         container.appendChild(document.createElement('br'));
 
-        const errorSpan = document.createElement('span');
+        const errorSpan = document.createElefment('span');
         errorSpan.className = 'error';
         errorSpan.style.color = 'red'; 
         container.appendChild(errorSpan); 
     });
 }
 
-// Validar el número de control
+// ************************************ Validar el número de control ************************************
 numeroControl.addEventListener('input', function() {
     if (regex.test(numeroControl.value)) {
         errorMensaje.style.display = 'none';
@@ -116,7 +115,7 @@ numeroControl.addEventListener('input', function() {
     }
 });
 
-// Calcular el semestre automáticamente
+// *********************************** Calcular el semestre automáticamente ********************************
 function calcularSemestre(nocontrol) {
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth() + 1;
@@ -140,6 +139,8 @@ function calcularSemestre(nocontrol) {
 
     semestreInput.value = semestresTranscurridos;
 }
+// ************************************ PREGUNTAS ************************************
+
 document.addEventListener('DOMContentLoaded', function() {
     let preg11_diario = document.getElementById('preg11_diario');
     let preg11_examenes = document.getElementById('preg11_solo_en_examenes');
@@ -215,10 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-/* ----------------------------------------------------------------------------------------- */
-
-
-// Validar el formulario al enviarlo
+// ************************************ Validar el formulario al enviarlo ************************************
 formulario.addEventListener('submit', function(event) {
     event.preventDefault(); 
     let valid = true; 
