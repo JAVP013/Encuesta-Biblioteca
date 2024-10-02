@@ -9,32 +9,27 @@
 <body>
 <header class="titulo">
     <div class="div_img1">
-        <img src="../imagenes/Logo-TecNM.png" class="imagenes" >
+        <img src="../imagenes/Logo-TecNM.png" class="imagenes">
     </div>
     <div class="letras-titulo">
         <h1>Encuesta de Satisfacción División de Estudios Profesionales</h1>
         <h2>Instituto Tecnológico de Tepic - ITTEPIC</h2>
     </div>
-<div class="div_img">
-    <img src="../imagenes/estepi.png" class="imagenes" >
-</div>
-
-
-
+    <div class="div_img">
+        <img src="../imagenes/estepi.png" class="imagenes">
+    </div>
 </header>
 
 <main class="estilo_mian">
     <p><strong>Las respuestas van enfocadas únicamente al desarrollo de tu acto recepcional. Favor de leer atentamente y contestar sinceramente</strong></p>
     
-    <form id="formEncuesta" action="https://script.google.com/a/macros/ittepic.edu.mx/s/AKfycbxHnb5SXUTfYN2iFwaWP8yQ3oon29UU2nggQ6FwX2epObdJn1LF_oFwaWfiAVH2Ti_r8g/exec" method="post">
-
+    <form id="formEncuesta" action="https://script.google.com/a/macros/ittepic.edu.mx/s/AKfycbwFvXEhflHNkp1G7kAXvpNro3y83I-_4PG5aVSIWgb55GfegiHecQCfC5HEC_J6Hi8gjQ/exec" method="post">
         <!-- Numero de control -->
-        <label for="text">Numero de control:</label><br>
-        <input type="textbox" id="nocontrol" name="nocontrol" placeholder="Numero de control" required >
+        <label for="nocontrol">Número de control:</label><br>
+        <input type="textbox" id="nocontrol" name="nocontrol" placeholder="Número de control" required>
         <span id="error" style="color:red; display:none;">Formato inválido</span>
         <br><br>
 
-        
         <!-- Campo oculto para el semestre -->
         <input type="hidden" id="semestre" name="semestre">
 
@@ -52,7 +47,7 @@
             <option value="Tic's">ING. EN TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES</option>
             <option value="Administracion">LIC. EN ADMINISTRACIÓN</option>
             <option value="Arquitectura">ARQUITECTURA</option>
-            <option value="Ma. en Alimento">MAESTRIA EN CIENCIAS EN ALIMENTO</option>
+            <option value="Ma. en Alimento">MAESTRÍA EN CIENCIAS EN ALIMENTO</option>
             <option value="Doc. en Alimento">DOCTORADO EN CIENCIAS EN ALIMENTO</option>
         </select><br><br>
 
@@ -64,173 +59,23 @@
             <option value="Otro">OTRO / INDISTINTO</option>
         </select><br><br>
 
-        <!-- Pregs de satisfacción -->
+        <!-- Preguntas dinámicas -->
         <h2>Preguntas de satisfacción</h2>
-<!----------------------------- ----nuevas poregunras-------------------------------- -->
-<!-- Preg 1 -->
-<label for="preg1">¿Que tramite realizaste?</label><br>
-<div class="letras-options">
-    <label>
-        <input type="radio" name="preg1" id="preg1" value="Acto Recepcional">
-        <span>Acto Recepcional</span>
-    </label>
-</div>
-<span id="error_preg1" class="error"></span>
-<br><br>
-
-<!-- Preg 2 -->
-<label for="preg2">¿Qué tan satisfecho estás con el tiempo de respuesta del trámite?</label><br>
-<div class="emoji-options">
-    <label>
-        <input type="radio" name="preg2" value="Altamente satisfecho">
-        <span>😀</span>
-    </label>
-    <label>
-        <input type="radio" name="preg2" value="Muy satisfecho" >
-        <span>😊</span>
-    </label>
-    <label>
-        <input type="radio" name="preg2" value="Satisfecho" >
-        <span>😐</span>
-    </label>
-    <label>
-        <input type="radio" name="preg2" value="Poco satisfecho" >
-        <span>☹️</span>
-    </label>
-    <label>
-        <input type="radio" name="preg2" value="Completamente insatisfecho">
-        <span>😠</span>
-    </label>
-</div>
-<span id="error_preg2" class="error"></span>
-<br><br>
-
-<!-- Preg 3 -->
-<label for="preg3">¿Qué tan satisfecho estás con la atención para resolver tus dudas?</label><br>
-<div class="emoji-options">
-    <label>
-        <input type="radio" name="preg3" value="Altamente satisfecho">
-        <span>😀</span>
-    </label>
-    <label>
-        <input type="radio" name="preg3" value="Muy satisfecho" >
-        <span>😊</span>
-    </label>
-    <label>
-        <input type="radio" name="preg3" value="Satisfecho" >
-        <span>😐</span>
-    </label>
-    <label>
-        <input type="radio" name="preg3" value="Poco satisfecho" >
-        <span>☹️</span>
-    </label>
-    <label>
-        <input type="radio" name="preg3" value="Completamente insatisfecho">
-        <span>😠</span>
-    </label>
-</div>
-<span id="error_preg3" class="error"></span>
-<br><br>
-
-<!-- Preg 4 -->
-<label for="preg4">¿Qué tan satisfecho estás con el trato por parte del personal involucrado?</label><br>
-<div class="emoji-options">
-    <label>
-        <input type="radio" name="preg4" value="Altamente satisfecho">
-        <span>😀</span>
-    </label>
-    <label>
-        <input type="radio" name="preg4" value="Muy satisfecho" >
-        <span>😊</span>
-    </label>
-    <label>
-        <input type="radio" name="preg4" value="Satisfecho" >
-        <span>😐</span>
-    </label>
-    <label>
-        <input type="radio" name="preg4" value="Poco satisfecho" >
-        <span>☹️</span>
-    </label>
-    <label>
-        <input type="radio" name="preg4" value="Completamente insatisfecho">
-        <span>😠</span>
-    </label>
-</div>
-<span id="error_preg4" class="error"></span>
-<br><br>
-
-<!-- Preg 5 -->
-<label for="preg5">¿Qué tan satisfecho estás con las instalaciones físicas y/o medios digitales a través de los cuales fuiste atendido?</label><br>
-<div class="emoji-options">
-    <label>
-        <input type="radio" name="preg5" value="Altamente satisfecho">
-        <span>😀</span>
-    </label>
-    <label>
-        <input type="radio" name="preg5" value="Muy satisfecho" >
-        <span>😊</span>
-    </label>
-    <label>
-        <input type="radio" name="preg5" value="Satisfecho" >
-        <span>😐</span>
-    </label>
-    <label>
-        <input type="radio" name="preg5" value="Poco satisfecho" >
-        <span>☹️</span>
-    </label>
-    <label>
-        <input type="radio" name="preg5" value="Completamente insatisfecho">
-        <span>😠</span>
-    </label>
-</div>
-<span id="error_preg5" class="error"></span>
-<br><br>
-
-<!-- Preg 6 -->
-<label for="preg6">¿Cómo calificarías tu experiencia completa con el trámite realizado?</label><br>
-<div class="emoji-options">
-    <label>
-        <input type="radio" name="preg6" value="Altamente satisfecho">
-        <span>😀</span>
-    </label>
-    <label>
-        <input type="radio" name="preg6" value="Muy satisfecho" >
-        <span>😊</span>
-    </label>
-    <label>
-        <input type="radio" name="preg6" value="Satisfecho" >
-        <span>😐</span>
-    </label>
-    <label>
-        <input type="radio" name="preg6" value="Poco satisfecho" >
-        <span>☹️</span>
-    </label>
-    <label>
-        <input type="radio" name="preg6" value="Completamente insatisfecho">
-        <span>😠</span>
-    </label>
-</div>
-<span id="error_preg6" class="error"></span>
-<br><br>
-
-<!-- preg 7 abierta -->
-<label for="text">Alguna observación o recomendación para mejorar el proceso:</label><br>
-<input type="textbox" id="preg7" name="preg7" placeholder="Observaciones" >
-<br><br>
+        <div id="preguntas-container"></div>
 
 
-    <input type="hidden" id="fechaHora" name="fechaHora">
+        <input type="hidden" id="fechaHora" name="fechaHora">
 
-    <span id="error_preg" class="error"></span>
-    <br><br>
-    <input type="submit" value="Enviar encuesta">
+        <span id="error_preg" class="error"></span>
+        <br><br>
+        <input type="submit" value="Enviar encuesta">
     </form>
 </main>
 <footer>
     <p>Instituto Tecnológico de Tepic - ITTEPIC | Centro de Información</p>
 </footer>
+
 <script src="../Scripts/ScriptDivisionEstudios.js" refer></script>
 
 </body>
 </html>
-

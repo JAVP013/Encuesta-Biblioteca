@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción de Servicios de Biblioteca - ITTEPIC</title>
+    <link rel="stylesheet" href="/styles/styleBiblioteca.css">
+</head>
+<body>
+<header class="titulo">
+    <div class="div_img1">
+        <img src="../imagenes/Logo-TecNM.png" class="imagenes" >
+    </div>
+    <div class="letras-titulo">
+        <h1>Encuesta de Satisfacción de Servicios de Biblioteca</h1>
+        <h2>Instituto Tecnológico de Tepic - ITTEPIC</h2>
+    </div>
+<div class="div_img">
+    <img src="../imagenes/estepi.png" class="imagenes" >
+</div>
+
+</header>
+
+<main class="estilo_mian">
+    <p><strong>Evaluar el nivel de satisfacción que poseen los estudiantes que son usuarios del Centro de Información (CI).</strong></p>
+    <p>El Centro de Información solicita su apoyo para contestar la siguiente encuesta sobre la satisfacción del usuario en relación con los servicios que se ofrecen en sus instalaciones.</p>
+    <p>Le pedimos por favor responder el siguiente cuestionario.</p>
+    
+    <form id="formEncuesta" action="https://script.google.com/macros/s/AKfycbykWCQzN5m_6cRQtzUSIsY-HskQPvhX0BRoO5eoAz6v1zbSyJJykKcGeylV_ljMqfmxCQ/exec" method="post">
+
+        <!-- Numero de control -->
+        <label for="text">Numero de control:</label><br>
+        <input type="textbox" id="nocontrol" name="nocontrol" placeholder="Numero de control" required >
+        <span id="error" style="color:red; display:none;">Formato inválido</span>
+        <br><br>
+
+        <!-- Semestre -->
+        <!-- Campo oculto para el semestre -->
+        <input type="hidden" id="semestre" name="semestre">
+
+        <!-- Carrera -->
+        <label for="carrera">Selecciona la carrera que estás cursando en la institución:</label><br>
+        <select id="carrera" name="carrera" required>
+            <option value="Industrial">ING. INDUSTRIAL</option>
+            <option value="Electrica">ING. ELÉCTRICA</option>
+            <option value="Mecatronica">ING. MECATRÓNICA</option>
+            <option value="Gestion">ING. EN GESTIÓN EMPRESARIAL</option>
+            <option value="Civil">ING. CIVIL</option>
+            <option value="Quimica">ING. QUÍMICA</option>
+            <option value="Bioquimica">ING. BIOQUÍMICA</option>
+            <option value="Sistemas Computacionales">ING. EN SISTEMAS COMPUTACIONALES</option>
+            <option value="Tic's">ING. EN TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES</option>
+            <option value="Administracion">LIC. EN ADMINISTRACIÓN</option>
+            <option value="Arquitectura">ARQUITECTURA</option>
+            <option value="Ma. en Alimento">MAESTRIA EN CIENCIAS EN ALIMENTO</option>
+            <option value="Doc. en Alimento">DOCTORADO EN CIENCIAS EN ALIMENTO</option>
+        </select><br><br>
+
+        <!-- Género -->
+        <label for="genero">Selecciona el género:</label><br>
+        <select id="genero" name="genero" required>
+            <option value="Femenino">FEMENINO</option>
+            <option value="Masculino">MASCULINO</option>
+            <option value="Otro">OTRO / INDISTINTO</option>
+        </select><br><br>
+
+        <!-- Pregs de satisfacción -->
+        <h2>Preguntas de satisfacción</h2>
+        <div id="preguntas-container"></div>
+
+        <span id="error_preg" class="error"></span>
+        <br><br>
+        <input type="submit" value="Enviar encuesta">
+    </form>
+</main>
+<footer>
+    <p>Instituto Tecnológico de Tepic - ITTEPIC | Centro de Información</p>
+</footer>
+<script src="../Scripts/ScriptPrueba.js" refer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let preg11_diario = document.getElementById('preg11_diario');
+        let preg11_examenes = document.getElementById('preg11_solo_en_examenes');
+        let preg11_23veces = document.getElementById('preg11_2_o_3_veces_por_semana');
+        let preg11_1vez = document.getElementById('preg11_1_vez_al_mes');
+        let preg11_nunca = document.getElementById('preg11_nunca');
+    
+        let preg12_manana = document.getElementById('preg12_mañana');
+        let preg12_tarde = document.getElementById('preg12_tarde');
+        let preg12_mixto = document.getElementById('preg12_ambos/mixto');
+        let preg12_nouso = document.getElementById('preg12_no_lo_uso');
+    
+        console.log('Pregunta 11:', preg11_diario, preg11_nunca); // Para depuración
+    
+        document.getElementsByName('preg11').forEach((element) => {
+            element.addEventListener('change', function() {
+                if (preg11_nunca.checked) {
+                    preg12_nouso.checked = true;
+    
+                    preg12_manana.disabled = true;
+                    preg12_tarde.disabled = true;
+                    preg12_mixto.disabled = true;
+                } else {
+                    preg11_diario.disabled = false;
+                    preg11_examenes.disabled = false;
+                    preg11_23veces.disabled = false;
+                    preg11_1vez.disabled = false;
+                    preg12_manana.disabled = false;
+                    preg12_tarde.disabled = false;
+                    preg12_mixto.disabled = false;
+                    preg12_nouso.disabled = true;
+                }
+            });
+        });
+    
+        // Para las preguntas 13, 14 y 15
+        let preg13_si = document.getElementById('preg13_si');
+        let preg13_no = document.getElementById('preg13_no');
+        let preg13_no_enterado = document.getElementById('preg13_no_estoy_enterado(a)');
+        
+        let preg14_siempre = document.getElementById('preg14_siempre');
+        let preg14_23veces = document.getElementById('preg14_2_o_3_veces');
+        let preg14_1vez = document.getElementById('preg14_1_vez');
+        let preg14_nunca = document.getElementById('preg14_nunca');
+        
+        let preg15_si = document.getElementById('preg15_si');
+        let preg15_no = document.getElementById('preg15_no');
+    
+        console.log('Pregunta 13:', preg13_si, preg13_no); // Para depuración
+    
+        document.getElementsByName('preg13').forEach((element) => {
+            element.addEventListener('change', function() {
+                if (preg13_no.checked || preg13_no_enterado.checked) {
+                    preg14_nunca.checked = true;
+                    preg15_no.checked = true;
+    
+                    preg14_siempre.disabled = true;
+                    preg14_23veces.disabled = true;
+                    preg14_1vez.disabled = true;
+                    preg15_si.disabled = true;
+                    preg15_no.disabled = true;
+                } else {
+                    preg14_siempre.disabled = false;
+                    preg14_23veces.disabled = false;
+                    preg14_1vez.disabled = false;
+                    preg15_si.disabled = false;
+                    preg15_no.disabled = false;
+                }
+                if (preg13_si.checked) {
+                    preg14_nunca.disabled = true;
+                }
+            });
+        });
+    });
+    
+</script>
+</body>
+</html>
+
+
+
