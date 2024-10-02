@@ -206,47 +206,38 @@
     formulario.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevenir el envío inmediato del formulario
         let valid = true; // Inicializa valid en true
-    
+        
         // Validar el número de control
         if (!regex.test(numeroControl.value)) {
             alert("Por favor, ingresa un número de control válido con el formato adecuado.");
             return; // Salir si el número de control es inválido
         }
-    
+        
         // Limpiar mensajes de error previos
         const errorElements = document.querySelectorAll('.error');
         errorElements.forEach(el => el.textContent = ""); 
-    
+        
         // Validar preguntas
-        const totalPreguntas = errorElements.length; // Número total de preguntas
-        for (let i = 1; i <= totalPreguntas; i++) {
-            const questionName = `preg${i}`;
-            let pregunta = document.getElementsByName(questionName);
-            let answered = false;
-    
-            for (let j = 0; j < pregunta.length; j++) {
-                if (pregunta[j].checked) {
-                    answered = true;
-                    break;
-                }
-            }
-    
+        const totalPreguntas = document.querySelectorAll('[id^="preguntas-container"] input[type="radio"]').length; // Contar total de preguntas
+        const questionGroups = document.querySelectorAll('#preguntas-container > div'); // Grupos de opciones
+        for (let i = 0; i < questionGroups.length; i++) {
+            const inputs = questionGroups[i].querySelectorAll('input[type="radio"]');
+            let answered = Array.from(inputs).some(input => input.checked); // Revisar si alguna respuesta fue seleccionada
+        
             if (!answered) {
                 valid = false; // Cambiar valid a false si no se ha respondido
-                errorElements[i - 1].textContent = "Por favor, conteste esta pregunta.";
-            }else{
-                valid=true;
+                errorElements[i].textContent = "Por favor, conteste esta pregunta.";
             }
         }
-    
+        console.log(valid);
         // Si todas las validaciones son correctas
         if (valid) {
-            document.getElementById('error_preg').textContent = ""; // Limpiar mensaje de error
-            formulario.submit(); // Enviar el formulario
+            formulario.submit(); // Enviar el formulario si es válido
         } else {
-            document.getElementById('error_preg').textContent = "Por2 favor, complete todas las preguntas.";
+            document.getElementById('error_preg').textContent = "Por favor, complete todas las preguntas.";
         }
-    });    
+    });
+       
 
     // Carga las preguntas al cargar la página
     document.addEventListener('DOMContentLoaded', fetchQuestions);
