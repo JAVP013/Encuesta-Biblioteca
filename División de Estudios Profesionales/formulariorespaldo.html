@@ -63,6 +63,9 @@
         <h2>Preguntas de satisfacción</h2>
         <div id="preguntas-container"></div>
 
+        <!-- Preg 7 abierta -->
+        <label for="preg7">Alguna observación o recomendación para mejorar el proceso:</label><br>
+        <input type="textbox" id="preg7" name="preg7" placeholder="Observaciones"><br><br>
 
         <input type="hidden" id="fechaHora" name="fechaHora">
 
@@ -92,93 +95,68 @@
     
     function displayQuestions(questions) {
         const container = document.getElementById('preguntas-container');
-    
+
         questions.forEach((row, index) => {
             const questionLabel = document.createElement('label');
             questionLabel.innerText = row[0]; // Primera columna es la pregunta
             container.appendChild(questionLabel);
-    
+            
             const optionsDiv = document.createElement('div');
             
-            // Verificar si todas las opciones están vacías (celda combinada)
-            const isTextBoxQuestion = row.slice(1).every(option => option === "");
-            
-            if (isTextBoxQuestion) {
-                // Agregar un campo de texto si la celda está combinada
-                const textBox = document.createElement('input');
-                textBox.type = 'textbox';
-                textBox.name = `preg${index + 1}`;
-                textBox.placeholder = 'Observaciones';
-                textBox.className = 'optional'; // Marcamos las preguntas abiertas como opcionales
-                optionsDiv.appendChild(textBox);
-                container.appendChild(optionsDiv);
-                container.appendChild(document.createElement('br'));
+            // Verificar si la pregunta es sobre satisfacción
+            if (row[0].toLowerCase().includes('satisfecho') | row[0].toLowerCase().includes('calificarías')) {
+                optionsDiv.className = 'emoji-options';
+                const emojis = {
+                    "Altamente satisfecho": "😀",
+                    "Muy satisfecho": "😊",
+                    "Satisfecho": "😐",
+                    "Poco satisfecho": "☹️",
+                    "Completamente insatisfecho": "😠"
+                };
+
+                // Crear las opciones con emojis
+                Object.keys(emojis).forEach(option => {
+                    const label = document.createElement('label');
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = `preg${index + 1}`; // Agrupando las respuestas por pregunta
+                    input.value = option;
+
+                    label.appendChild(input);
+                    const emojiSpan = document.createElement('span'); // Crear el span para el emoji
+                    emojiSpan.textContent = emojis[option]; // Añadir el emoji al span
+                    label.appendChild(emojiSpan); // Añadir el span al label
+                    optionsDiv.appendChild(label);
+                });
             } else {
-                // Verificar si la pregunta es sobre satisfacción
-                if (row[1].toLowerCase().includes('satisfecho')) {
-                    optionsDiv.className = 'emoji-options';
-                    const emojis = {
-                        "Altamente satisfecho": "😀",
-                        "Muy satisfecho": "😊",
-                        "Satisfecho": "😐",
-                        "Poco satisfecho": "☹️",
-                        "Completamente insatisfecho": "😠"
-                    };
-    
-                    // Crear las opciones con emojis
-                    Object.keys(emojis).forEach(option => {
-                        const label = document.createElement('label');
-                        const input = document.createElement('input');
-                        input.type = 'radio';
-                        input.name = `preg${index + 1}`; // Agrupando las respuestas por pregunta
-                        input.value = option;
-    
-                        label.appendChild(input);
-                        const emojiSpan = document.createElement('span'); // Crear el span para el emoji
-                        emojiSpan.textContent = emojis[option]; // Añadir el emoji al span
-                        label.appendChild(emojiSpan); // Añadir el span al label
-                        optionsDiv.appendChild(label);
-                    });
-                    container.appendChild(optionsDiv);
-                    container.appendChild(document.createElement('br'));
-            
-                    const errorSpan = document.createElement('span');
-                    errorSpan.className = 'error';
-                    errorSpan.style.color = 'red'; // Para el color del error
-                    container.appendChild(errorSpan); // Añadir espacio para errores
-                } else {
-                    optionsDiv.className = 'letras-options';
-                    // Las opciones de respuesta están en columnas posteriores
-                    const options = row.slice(1); // Suponiendo que las opciones empiezan en la segunda columna
-    
-                    options.forEach((option) => {
-                        if (option !== "") { // Evitar opciones vacías
-                            const label = document.createElement('label');
-                            const input = document.createElement('input');
-                            input.type = 'radio';
-                            input.name = `preg${index + 1}`; // Agrupando las respuestas por pregunta
-                            input.value = option;
-    
-                            label.appendChild(input);
-                            const textSpan = document.createElement('span'); // Crear el span para el texto
-                            textSpan.textContent = option; // Añadir el texto al span
-                            label.appendChild(textSpan); // Añadir el span al label
-                            optionsDiv.appendChild(label);
-                        }
-                    });
-                    container.appendChild(optionsDiv);
-                    container.appendChild(document.createElement('br'));
-            
-                    const errorSpan = document.createElement('span');
-                    errorSpan.className = 'error';
-                    errorSpan.style.color = 'red'; // Para el color del error
-                    container.appendChild(errorSpan); // Añadir espacio para errores
-                }
+                optionsDiv.className = 'letras-options';
+                // Las opciones de respuesta están en columnas posteriores
+                const options = row.slice(1); // Suponiendo que las opciones empiezan en la segunda columna
+
+                options.forEach((option) => {
+                    const label = document.createElement('label');
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = `preg${index + 1}`; // Agrupando las respuestas por pregunta
+                    input.value = option;
+
+                    label.appendChild(input);
+                    const textSpan = document.createElement('span'); // Crear el span para el texto
+                    textSpan.textContent = option; // Añadir el texto al span
+                    label.appendChild(textSpan); // Añadir el span al label
+                    optionsDiv.appendChild(label);
+                });
             }
-    
+
+            container.appendChild(optionsDiv);
+            container.appendChild(document.createElement('br'));
+
+            const errorSpan = document.createElement('span');
+            errorSpan.className = 'error';
+            errorSpan.style.color = 'red'; // Para el color del error
+            container.appendChild(errorSpan); // Añadir espacio para errores
         });
     }
-    
     
     // Validar el número de control
     const numeroControl = document.getElementById('nocontrol');
@@ -240,39 +218,26 @@
         errorElements.forEach(el => el.textContent = ""); 
         
         // Validar preguntas
-        const totalPreguntas = document.querySelectorAll('#preguntas-container > div'); // Grupos de opciones
-        for (let i = 0; i < totalPreguntas.length; i++) {
-            const questionGroup = totalPreguntas[i];
-            const radioInputs = questionGroup.querySelectorAll('input[type="radio"]');
-            const textInput = questionGroup.querySelector('input[type="textbox"]');
-    
-            // Si es una pregunta con opciones (radio buttons)
-            if (radioInputs.length > 0) {
-                let answered = Array.from(radioInputs).some(input => input.checked); // Revisar si alguna respuesta fue seleccionada
-            
-                if (!answered) {
-                    valid = false; // Cambiar valid a false si no se ha respondido
-                    errorElements[i].textContent = "Por favor, conteste esta pregunta.";
-                }
-            }
-    
-            // Si es una pregunta abierta (opcional)
-            if (textInput && !textInput.classList.contains('optional')) {
-                if (textInput.value.trim() === "") {
-                    valid = false;
-                    errorElements[i].textContent = "Por favor, complete este campo.";
-                }
+        const totalPreguntas = document.querySelectorAll('[id^="preguntas-container"] input[type="radio"]').length; // Contar total de preguntas
+        const questionGroups = document.querySelectorAll('#preguntas-container > div'); // Grupos de opciones
+        for (let i = 0; i < questionGroups.length; i++) {
+            const inputs = questionGroups[i].querySelectorAll('input[type="radio"]');
+            let answered = Array.from(inputs).some(input => input.checked); // Revisar si alguna respuesta fue seleccionada
+        
+            if (!answered) {
+                valid = false; // Cambiar valid a false si no se ha respondido
+                errorElements[i].textContent = "Por favor, conteste esta pregunta.";
             }
         }
-    
+        console.log(valid);
         // Si todas las validaciones son correctas
         if (valid) {
             formulario.submit(); // Enviar el formulario si es válido
         } else {
-            document.getElementById('error_preg').textContent = "Por favor, complete todas las preguntas obligatorias.";
+            document.getElementById('error_preg').textContent = "Por favor, complete todas las preguntas.";
         }
     });
-      
+       
 
     // Carga las preguntas al cargar la página
     document.addEventListener('DOMContentLoaded', fetchQuestions);
