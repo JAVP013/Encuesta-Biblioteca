@@ -72,8 +72,17 @@ label {
 }
 .NoControlText,.carreraText,.generoText{
    justify-content:left;
+   margin: -17px 0px;
+   margin-top: 10px
  }
 
+ .ParrafoInicial{
+    background:  #0057a7;
+    border-radius: 8px;
+    color:white;
+    padding: 10px;
+ }
+ 
 input[type="textbox"],
 select {
     width: 100%;
@@ -101,6 +110,8 @@ input[type="submit"]:hover {
 
 p {
     margin-bottom: 15px;
+    display: flex;
+    justify-content: left;
 }
 
 footer {
@@ -186,9 +197,7 @@ footer {
     color: red;
     font-size: 0.9em;
 }
-.ParrafoInicial{
 
-}
 
 
 /* Responsive design */

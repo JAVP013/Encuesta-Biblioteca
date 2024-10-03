@@ -72,7 +72,16 @@ label {
 }
 .NoControlText,.carreraText,.generoText{
     justify-content:left;
-  }
+    margin: -17px 0px;
+    margin-top: 10px
+}
+.ParrafoInicial{
+    background:  #0057a7;
+    border-radius: 8px;
+    color:white;
+    padding: 10px;
+ }
+
 input[type="textbox"],
 select {
     width: 100%;
