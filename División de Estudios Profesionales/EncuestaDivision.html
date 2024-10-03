@@ -25,7 +25,7 @@
     
     <form id="formEncuesta" action="https://script.google.com/a/macros/ittepic.edu.mx/s/AKfycbwFvXEhflHNkp1G7kAXvpNro3y83I-_4PG5aVSIWgb55GfegiHecQCfC5HEC_J6Hi8gjQ/exec" method="post">
         <!-- Numero de control -->
-        <label for="nocontrol">Número de control:</label><br>
+        <label for="nocontrol" class="NoControlText">Número de control:</label><br>
         <input type="textbox" id="nocontrol" name="nocontrol" placeholder="Número de control" required>
         <span id="error" style="color:red; display:none;">Formato inválido</span>
         <br><br>
@@ -34,7 +34,7 @@
         <input type="hidden" id="semestre" name="semestre">
 
         <!-- Carrera -->
-        <label for="carrera">Selecciona la carrera que estás cursando en la institución:</label><br>
+        <label for="carrera" class="carreraText">Selecciona la carrera que estás cursando en la institución:</label><br>
         <select id="carrera" name="carrera" required>
             <option value="Industrial">ING. INDUSTRIAL</option>
             <option value="Electrica">ING. ELÉCTRICA</option>
@@ -44,7 +44,6 @@
             <option value="Quimica">ING. QUÍMICA</option>
             <option value="Bioquimica">ING. BIOQUÍMICA</option>
             <option value="Sistemas Computacionales">ING. EN SISTEMAS COMPUTACIONALES</option>
-            <option value="Tic's">ING. EN TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES</option>
             <option value="Administracion">LIC. EN ADMINISTRACIÓN</option>
             <option value="Arquitectura">ARQUITECTURA</option>
             <option value="Ma. en Alimento">MAESTRÍA EN CIENCIAS EN ALIMENTO</option>
@@ -52,7 +51,7 @@
         </select><br><br>
 
         <!-- Género -->
-        <label for="genero">Selecciona el género:</label><br>
+        <label for="genero" class="generoText">Selecciona el género:</label><br>
         <select id="genero" name="genero" required>
             <option value="Femenino">FEMENINO</option>
             <option value="Masculino">MASCULINO</option>

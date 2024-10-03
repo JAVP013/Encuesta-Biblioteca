@@ -118,7 +118,6 @@ function displayQuestions(questions) {
             const textBox = document.createElement('input');
             textBox.type = 'textbox';
             textBox.name = `preg${index + 1}`;
-            textBox.placeholder = 'Observaciones';
             textBox.className = 'optional'; // Marcamos las preguntas abiertas como opcionales
             optionsDiv.appendChild(textBox);
         } else {

@@ -65,10 +65,14 @@ main h2 {
 
 label {
     font-weight: bold;
-    display: block;
+    display: flex;
     margin-top: 15px;
+    justify-content: center;
     
 }
+.NoControlText,.carreraText,.generoText{
+   justify-content:left;
+ }
 
 input[type="textbox"],
 select {
@@ -182,6 +186,10 @@ footer {
     color: red;
     font-size: 0.9em;
 }
+.ParrafoInicial{
+
+}
+
 
 /* Responsive design */
 @media (max-width: 800px) {

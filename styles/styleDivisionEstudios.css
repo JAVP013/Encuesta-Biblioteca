@@ -65,11 +65,14 @@ main h2 {
 
 label {
     font-weight: bold;
-    display: block;
+    display: flex;
     margin-top: 15px;
+    justify-content: center;
     
 }
-
+.NoControlText,.carreraText,.generoText{
+    justify-content:left;
+  }
 input[type="textbox"],
 select {
     width: 100%;
