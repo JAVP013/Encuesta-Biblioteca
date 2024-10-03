@@ -1,5 +1,15 @@
 <html>
     <style>
+        body {
+            font-family: 'montserrat', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            text-align: center;
+        
+        }
         header {
             background-color: lightgrey;
             color: rgb(72, 61, 61);
@@ -8,12 +18,9 @@
             display: flex;
             justify-content: space-around;
             display: flex;
+            margin: -20px;
         
         }
-        
-        /* header image{
-            align-content:end;
-        } */
         header h1 {
             margin: 0;
             font-size: 1.4rem;
@@ -43,6 +50,61 @@
             color: white;
             margin-top: 20px;
         }
+        /* Responsive design */
+        @media (max-width: 800px) {
+            header {
+                flex-direction: row;
+                padding: 10px;
+                justify-content: space-around;
+            }
+
+            header h1,h2 {
+                font-size: 1rem;
+            }
+
+            .div_img1 {
+                width: 200px;
+                height: 100px;
+            
+            }
+
+            main {
+                margin: 10px;
+                padding: 15px;
+                font-size: 1rem;
+            }
+
+            .emoji-options span {
+                font-size: 2rem;
+            }
+            
+        }
+
+        @media (max-width: 630px) {
+            .letras-options {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .emoji-options span {
+                font-size: 1.8rem;
+            }
+
+            header h1,h2 {
+                font-size: 0.7rem;
+            }
+
+            .div_img1 {
+                width: 130px;
+                height: 80px;
+            }
+            .letras-titulo{
+                margin-right: -50px;
+            }
+            .div_img{
+            width: 60px;
+            }
+        }
     </style>
     <header class="titulo">
         <div class="div_img1">
@@ -57,6 +119,7 @@
         </div>
     </header>
       <body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
+        <br>
         <p style="font-size: 16px; color: black;">
           Agradecemos sinceramente tu tiempo y tu valiosa opinión al completar esta encuesta de satisfacción sobre nuestros servicios de atención. Tus comentarios son fundamentales para ayudarnos a mejorar y ofrecerte una experiencia aún mejor en nuestra biblioteca.
         </p>
@@ -65,7 +128,6 @@
           Valoramos cada sugerencia y apreciamos tu colaboración en este proceso. Juntos, podemos seguir creando un espacio donde todos se sientan bienvenidos y atendidos.
         </p>
         <h2 style="color: #0057a7;">¡Gracias por ser parte de nuestra comunidad!</h2>
-        <img style=" width: 300px; align-text:center;" src="">
     <footer>
         <p>Instituto Tecnológico de Tepic - ITTEPIC | Centro de Información</p>
     </footer> 
